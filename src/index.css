@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+* { box-sizing: border-box; }
+
+:root {
+  --brown-deep:  #2C1200;
+  --brown-dark:  #3D1800;
+  --brown-mid:   #5C2800;
+  --gold:        #C49A3C;
+  --gold-light:  #DDB968;
+  --gold-pale:   #F0D898;
+  --cream:       #FDF9F4;
+  --cream-dark:  #F5EFE6;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #2C1200;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 22s linear infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
