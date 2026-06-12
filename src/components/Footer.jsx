@@ -1,4 +1,6 @@
-﻿const navLinks = [
+﻿import { Link, useNavigate } from 'react-router-dom'
+
+const navLinks = [
   { label: 'The Nami Standard', id: 'standard' },
   { label: 'Collections', id: 'collections' },
   { label: 'Testimonials', id: 'testimonials' },
@@ -6,7 +8,15 @@
 ]
 
 export default function Footer() {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
+  const scrollTo = (id) => {
+    if (window.location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 300)
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <footer className="bg-[#1A0A00] text-white">
@@ -20,10 +30,11 @@ export default function Footer() {
               Explore Our Full Collection Today
             </p>
           </div>
-          <button onClick={() => scrollTo('collections')}
-            className="bg-[#C49A3C] text-white text-xs font-bold tracking-widest uppercase px-8 py-4 hover:bg-[#DDB968] transition-all flex-shrink-0">
-            Explore Range →
-          </button>
+          <Link to="/shop"
+            className="bg-[#C49A3C] text-white text-xs font-bold tracking-widest uppercase px-8 py-4 hover:bg-[#DDB968] transition-all flex-shrink-0"
+            style={{ textDecoration: 'none' }}>
+            Shop All Products →
+          </Link>
         </div>
       </div>
 
@@ -62,6 +73,11 @@ export default function Footer() {
         <div>
           <h4 className="text-[10px] font-bold tracking-[0.3em] uppercase text-gray-500 mb-5">Navigation</h4>
           <ul className="space-y-3">
+            <li>
+              <Link to="/shop" className="text-xs text-[#C49A3C] hover:text-[#DDB968] transition-colors tracking-wide font-bold" style={{ textDecoration: 'none' }}>
+                🛍 Shop All Products
+              </Link>
+            </li>
             {navLinks.map(l => (
               <li key={l.id}>
                 <button onClick={() => scrollTo(l.id)}

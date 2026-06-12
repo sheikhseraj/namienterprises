@@ -28,7 +28,7 @@ export default function NamiStandard() {
 
   return (
     <section id="standard" style={{ padding: '96px 0', background: '#FDF9F4' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
+      <div className="section-pad-x" style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
 
         <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }} style={{ marginBottom: 56 }}>
@@ -46,7 +46,7 @@ export default function NamiStandard() {
           </div>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 1, background: 'rgba(196,154,60,0.15)' }} className="md:grid-cols-3 grid-cols-1">
+        <div className="pillar-grid">
           {pillars.map((p, i) => (
             <motion.div key={p.num}
               initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}

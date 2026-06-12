@@ -54,7 +54,7 @@ export default function Testimonials() {
             <motion.div key={r.name}
               initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex-shrink-0 w-80 bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all group">
+              className="testimonial-card flex-shrink-0 w-80 bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-all group">
 
               {/* Stars */}
               <div className="flex gap-1 mb-6">
