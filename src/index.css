@@ -74,3 +74,24 @@ body {
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
+/* ── Navbar ── */
+.navbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-logo          { height: 58px; }
+.navbar-mobile-icons  { display: none; align-items: center; gap: 12px; }
+.navbar-desktop-links { display: flex; align-items: center; gap: 28px; }
+
+@media (max-width: 767px) {
+  .navbar-inner           { padding: 0 16px; height: 60px; }
+  .navbar-logo          { height: 40px; }
+  .navbar-mobile-icons  { display: flex; }
+  .navbar-desktop-links { display: none !important; }
+}
