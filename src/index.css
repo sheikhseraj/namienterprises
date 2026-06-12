@@ -35,3 +35,42 @@ body {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Responsive helpers ── */
+.hero-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: flex-end;
+}
+@media (max-width: 768px) {
+  .hero-content-grid {
+    grid-template-columns: 1fr;
+    padding-bottom: 56px !important;
+    padding-top: 110px !important;
+  }
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(196,154,60,0.15);
+}
+@media (max-width: 768px) {
+  .pillar-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero-section-pad { padding-left: 20px !important; padding-right: 20px !important; }
+  .section-pad-x    { padding-left: 20px !important; padding-right: 20px !important; }
+  .collections-card { width: 260px !important; }
+  .testimonial-card { width: 280px !important; }
+}
+
+/* Product detail page desktop grid */
+@media (min-width: 768px) {
+  .md\:product-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
