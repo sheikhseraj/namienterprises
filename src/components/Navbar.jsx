@@ -68,12 +68,14 @@ export default function Navbar() {
         backdropFilter: scrolled || !isHome ? 'blur(12px)' : 'none',
         boxShadow: scrolled || !isHome ? '0 2px 20px rgba(44,18,0,0.08)' : 'none',
       }}>
-        <div className="section-pad-x" style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div className="navbar-inner">
 
           {/* Logo */}
-          <Link to="/" style={{ lineHeight: 0, display: 'block' }}>
+          <Link to="/" style={{ lineHeight: 0, display: 'block', flexShrink: 0 }}>
             <img src="/logo.png" alt="Nami Enterprises"
-              style={{ height: 62, width: 'auto', objectFit: 'contain', display: 'block',
+              className="navbar-logo"
+              style={{
+                width: 'auto', objectFit: 'contain', display: 'block',
                 filter: isDark ? 'brightness(0) invert(1)' : 'none',
                 transition: 'filter 0.4s ease',
               }}
@@ -81,7 +83,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop links */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 28 }} className="hidden md:flex">
+          <div className="navbar-desktop-links">
             {links.map(l => (
               <button key={l.id} onClick={() => scrollTo(l.id)} style={{
                 background: 'none', border: 'none', cursor: 'pointer',
@@ -140,7 +142,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile right icons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }} className="md:hidden">
+          <div className="navbar-mobile-icons">
             <button onClick={() => setSearchOpen(s => !s)}
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: iconCol }}>
               <Search size={20} />
