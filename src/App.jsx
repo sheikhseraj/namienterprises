@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { WishlistProvider } from './context/WishlistContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials'
 import VisitUs from './components/VisitUs'
 import ShopPage from './pages/ShopPage'
 import ProductPage from './pages/ProductPage'
+import AdminPage from './pages/AdminPage'
 
 function HomePage() {
   return (
@@ -24,19 +25,40 @@ function HomePage() {
   )
 }
 
+function SiteLayout() {
+  return (
+    <div className="bg-white text-gray-900 overflow-x-hidden">
+      <Navbar />
+      <Routes>
+        <Route path="/"              element={<HomePage />} />
+        <Route path="/shop"          element={<ShopPage />} />
+        <Route path="/product/:slug" element={<ProductPage />} />
+      </Routes>
+      <Footer />
+    </div>
+  )
+}
+
+function AppRoutes() {
+  const location = useLocation()
+  const isAdmin  = location.pathname.startsWith('/admin')
+
+  if (isAdmin) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    )
+  }
+
+  return <SiteLayout />
+}
+
 function App() {
   return (
     <BrowserRouter>
       <WishlistProvider>
-        <div className="bg-white text-gray-900 overflow-x-hidden">
-          <Navbar />
-          <Routes>
-            <Route path="/"               element={<HomePage />} />
-            <Route path="/shop"           element={<ShopPage />} />
-            <Route path="/product/:slug"  element={<ProductPage />} />
-          </Routes>
-          <Footer />
-        </div>
+        <AppRoutes />
       </WishlistProvider>
     </BrowserRouter>
   )
