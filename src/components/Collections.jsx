@@ -61,8 +61,11 @@ export default function Collections() {
               <Link to={`/product/${p.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                 {/* Image area */}
                 <div className="relative h-72 rounded-xl overflow-hidden mb-5 flex items-center justify-center"
-                  style={{ background: p.bg }}>
-                  <span className="text-8xl select-none group-hover:scale-110 transition-transform duration-500">{p.emoji}</span>
+                  style={{ background: p.images?.[0] ? '#f5f5f5' : (p.bg || '#1A1A2E') }}>
+                  {p.images?.[0]
+                    ? <img src={p.images[0]} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }} className="group-hover:scale-105" />
+                    : <span className="text-8xl select-none group-hover:scale-110 transition-transform duration-500">{p.emoji || '👟'}</span>
+                  }
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   {/* Discount badge */}
