@@ -76,13 +76,13 @@ export default function Collections() {
                   </div>
 
                   <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: p.accent }}>
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: '#C49A3C' }}>
                       <ArrowUpRight size={14} className="text-white" />
                     </div>
                   </div>
                   <div className="absolute top-4 left-4">
-                    <span className="text-[9px] font-bold tracking-[0.25em] px-2.5 py-1 rounded-sm text-white"
-                      style={{ background: p.accent + '33', border: `1px solid ${p.accent}66`, color: p.accent }}>
+                    <span className="text-[9px] font-bold tracking-[0.25em] px-2.5 py-1 rounded-sm"
+                      style={{ background: 'rgba(196,154,60,0.2)', border: '1px solid rgba(196,154,60,0.5)', color: '#DDB968' }}>
                       {p.category} · {p.subCategory}
                     </span>
                   </div>
